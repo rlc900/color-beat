@@ -1,4 +1,4 @@
-
+import React, { useEffect } from 'react';
 
 export default function Button ({parentButtonPress}) {
     // console.log(parentButtonPress)
@@ -16,10 +16,21 @@ export default function Button ({parentButtonPress}) {
         {name: 'p'}
     ]
 
-    const buttons = buttonsArray.map((button) => {
-    return <button>{button.name}</button>
+    useEffect(() => {
+        const whatisthis = document.addEventListener('keydown', pressButton())
+        console.log(whatisthis)
     })
 
+    const buttons = buttonsArray.map((button) => {
+        return <button key={button.name}>{button.name}</button>
+    })
+  
+    function pressButton(e) {
+        // console.log(e)
+        // if (e.keyCode === buttons.name) {
+        //     console.log('this works')
+        // }
+    }
 
     return (
         <div>
@@ -27,3 +38,4 @@ export default function Button ({parentButtonPress}) {
         </div>
     )
 }
+
