@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import Button from './Button'
 
-export default function Button ({parentButtonPress}) {
+export default function Buttons ({parentButtonPress}) {
     // console.log(parentButtonPress)
+    const [pressedKey, setPressedKey] = useState({letter: ''});
 
     const buttonsArray = [
         {name: 'q'},
@@ -17,21 +19,25 @@ export default function Button ({parentButtonPress}) {
     ]
 
     useEffect(() => {
-        const whatisthis = document.addEventListener('keydown', pressButton())
-        console.log(whatisthis)
+        document.addEventListener('keydown', pressButton)
+        return () => {
+            document.removeEventListener('keydown', pressButton)
+        }
     })
+    
+    function pressButton(e) {
+        // console.log(e.key)
+        setPressedKey({letter: e.key})
+    }
+    // console.log(pressedKey)
 
     const buttons = buttonsArray.map((button) => {
-        return <button key={button.name}>{button.name}</button>
+        return <Button pressedKey={pressedKey} button={button} key={button.name}/>
     })
-  
-    function pressButton(e) {
-        // console.log(e)
-        // if (e.keyCode === buttons.name) {
-        //     console.log('this works')
-        // }
-    }
 
+    
+  
+    // console.log(buttons)
     return (
         <div>
             {buttons}
