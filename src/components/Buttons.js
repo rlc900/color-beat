@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from './Button'
 
-export default function Buttons ({parentButtonPress}) {
+export default function Buttons () {
     // console.log(parentButtonPress)
     const [pressedKey, setPressedKey] = useState({letter: ''});
 
