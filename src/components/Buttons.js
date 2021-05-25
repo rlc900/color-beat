@@ -6,16 +6,46 @@ export default function Buttons () {
     const [pressedKey, setPressedKey] = useState({letter: ''});
 
     const buttonsArray = [
-        {name: 'q'},
-        {name: 'w'},
-        {name: 'r'},
-        {name: 'e'},
-        {name: 't'},
-        {name: 'y'},
-        {name: 'u'},
-        {name: 'i'},
-        {name: 'o'},
-        {name: 'p'}
+        {
+            name: 'q',
+            id: 1
+        },
+        {
+            name: 'w',
+            id: 2
+        },
+        {
+            name: 'r',
+            id: 3
+        },
+        {
+            name: 'e',
+            id: 4
+        },
+        {
+            name: 't',
+            id: 5
+        },
+        {
+            name: 'y',
+            id: 6
+        },
+        {
+            name: 'u',
+            id: 7
+        },
+        {
+            name: 'i',
+            id: 8
+        },
+        {
+            name: 'o',
+            id: 9
+        },
+        {
+            name: 'p',
+            id: 10
+        }
     ]
 
     useEffect(() => {
