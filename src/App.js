@@ -2,6 +2,7 @@ import './App.css';
 import Buttons from './components/Buttons'
 
 
+
 function App() {
 
   function onPressButtons() {
@@ -12,6 +13,7 @@ function App() {
     <div className="App">
       <header>Welcome to Color Beat!</header>
       <Buttons parentButtonPress={onPressButtons}/>
+      
     </div>
   );
 }
