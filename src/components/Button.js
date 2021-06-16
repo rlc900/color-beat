@@ -1,9 +1,10 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import * as Tone from 'tone'
 
 export default function Button ({button, pressedKey}) {
     let buttonElement = useRef(null)
-
+    let [colors, setColors] = useState({ color: 'black' });
+    
     useEffect(() => {
         if (pressedKey.letter === button.name) {
             // console.log('hello from,', button.name, buttonElement)
@@ -13,18 +14,32 @@ export default function Button ({button, pressedKey}) {
     }, [pressedKey, button.name])
 
     function handleClick() {
-    // figure out what sounds you want
-    // figure out how to import sounds
-    // implement logic here to trigger sound effects for each key pressed
+
+
     const synth = new Tone.Synth().toDestination();
     //play a middle 'C' for the duration of an 8th note
     synth.triggerAttackRelease("C4", "8n");
-        console.log('yooooooo', button.name)
+    
+
+    // LOGIC FOR SELECTING RANDOM COLOR
+        let firstColor = 'black'
+        let secondColor = 'blue'
+        let changedColor = colors.color === 'black' ? secondColor : firstColor
+        setColors({color: changedColor})
+        console.log(colors)
+    // let randomColor;
+    // const randomColor = setColors(colors[Math.floor(
+    //     Math.random() * colors.length)])
+   
+    // const x = document.getElementById('body');
+    // x.style.color = randomColor;
+
     }
 
     return (
-    <div>
+    <div style={{backgroundColor: colors.color}}>
     <button onClick={handleClick} ref={buttonElement}>{button.name}</button>
     </div>
     )
 }
+

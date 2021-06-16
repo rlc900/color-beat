@@ -56,7 +56,7 @@ export default function Buttons () {
     })
     
     function pressButton(e) {
-        // console.log(e.key)
+        console.log(e.key)
         setPressedKey({letter: e.key})
     }
     // console.log(pressedKey)
