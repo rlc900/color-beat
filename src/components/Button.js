@@ -4,7 +4,8 @@ import * as Tone from 'tone'
 
 export default function Button ({button, pressedKey}) {
     let buttonElement = useRef(null)
-    let [colors, setColors] = useState({ color: 'black' });
+    // let [colors, setColors] = useState({ color: 'black' });
+    // let [colors, setColors] = useState(['black']);
    
     // useEffect(() => {
     //     document.body.style.backgroundColor = 'black'
@@ -26,12 +27,22 @@ export default function Button ({button, pressedKey}) {
     synth.triggerAttackRelease("C4", "8n");
     
     // LOGIC FOR SELECTING RANDOM COLOR
-        let firstColor = 'black'
-        let secondColor = 'blue'
-        let changedColor = colors.color === 'black' ? secondColor : firstColor
-        setColors({color: changedColor})
+        let colors = ['black', 'blue', 'red', 'green', 'pink']
+        // let changedColor = colors.color === 'black' ? secondColor : firstColor
+        // colors.map((color) => {
+            // let firstColor = 'black'
+            // let secondColor = 'blue'
+            
+            // let changedColor = color === 'black' ? secondColor : firstColor
+            // console.log(changedColor)
+            // setColors([...colors, changedColor])
+            document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]
+            
+        // })
+        // setColors({color: changedColor})
+        
         // console.log(colors.color)
-        document.body.style.backgroundColor = colors.color
+        
     }
 
     return (
